@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="container-fluid" style="margin-left: 20px; margin-top: 100px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <!-- Add background image if necessary -->
+        </div>
+        
+        <!-- The content half -->
+        <div class="col-md-6 bg-light" style="margin-left: 400px;">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h3 class="display-4">Modifier l'état d'une réclamation</h3>
+                            
+                            <form (ngSubmit)="onSubmit()">
+
+                                <div class="form-group mb-3">
+                                    <label for="inputContent">Contenu de la réclamation :</label>
+                                    <input id="inputContent" type="text" [(ngModel)]="currentClaim.content" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4" name="inputContent" disabled>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="inputStatus">Statut de la réclamation :</label>
+                                    <input id="inputStatus" type="text" [(ngModel)]="currentClaim.status"
+                                        class="form-control rounded-pill border-0 shadow-sm px-4" name="inputStatus" (input)="onStatusChange()">
+                                </div>
+
+                                <!-- Nom et Prénom -->
+                                <div class="form-group mb-3">
+                                    <label for="inputNom">Nom :</label>
+                                    <input id="inputNom" type="text" [(ngModel)]="currentClaim.users.lastName" name="inputNom" disabled
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="inputPrenom">Prénom :</label>
+                                    <input id="inputPrenom" type="text" [(ngModel)]="currentClaim.users.firstName" name="inputPrenom" disabled
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="inputEmail">Email :</label>
+                                    <input id="inputEmail" type="email" [(ngModel)]="currentClaim.users.email" name="inputEmail" disabled
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="inputPhoneNumber">Numéro de téléphone :</label>
+                                    <input id="inputPhoneNumber" type="tel" [(ngModel)]="currentClaim.users.phoneNumber" name="inputPhoneNumber" disabled
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+
+                                <!-- Date de la réclamation -->
+                                <div class="form-group mb-3">
+                                    <label for="inputDate">Date de la réclamation :</label>
+                                    <input id="inputDate" type="text" [(ngModel)]="currentClaim.dateReclamation" name="inputDate" disabled autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill shadow-sm" [disabled]="!edited">Modifier</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

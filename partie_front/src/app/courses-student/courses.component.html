@@ -1,0 +1,14 @@
+<div *ngIf="courses">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3 class="card-title">Cours pour la Matière {{ subjectId }}</h3>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let course of courses">
+          {{ course.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

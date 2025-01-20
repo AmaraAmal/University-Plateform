@@ -1,0 +1,105 @@
+<app-header></app-header>
+<div class="container-fluid" style="margin-left: 20px; margin-top: 100px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <!-- Add background image if necessary -->
+        </div>
+        
+        <!-- The content half -->
+        <div class="col-md-6 bg-light"  style="margin-left: 400px;">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8" style="margin-right: 800px;">
+                            <h3 class="display-4">Ajouter un enseignant</h3>
+                            
+                            <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                                <!-- First Name input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputFirstName" type="text" formControlName="firstName"
+                                    [ngClass]="{ 'is-invalid': submitted && addForm.controls['firstName'].errors }"
+                                        placeholder="Nom de l'enseignant " autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    
+                                        <div *ngIf="submitted && addForm.controls['firstName'].errors" class="invalid-feedback" style="color: red;">
+                                            <div *ngIf="addForm.controls['firstName'].hasError('required')">Veuillez saisir le nom de l'enseignant </div>
+                                            <div *ngIf="addForm.controls['firstName'].hasError('minlength')" style="color: red;">Le nom de l'enseignant doit être au moins 3 caractères.</div>
+
+                                        </div>
+
+                                </div>
+                                
+                                <!-- Last Name input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputLastName" type="text" formControlName="lastName" 
+                                    [ngClass]="{ 'is-invalid': submitted && addForm.controls['lastName'].errors }"
+                                        placeholder="Prénom de l'enseignant " autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                        <div *ngIf="submitted && addForm.controls['lastName'].errors" class="invalid-feedback">
+                                            <div *ngIf="addForm.controls['lastName'].hasError('required')" style="color: red;">Veuillez saisir le prénom de l'enseignant </div>
+                                            <div *ngIf="addForm.controls['lastName'].hasError('minlength')" style="color: red;">Le prénom de l'enseignant doit être au moins 3 caractères.</div>
+
+                                        </div>
+                                  
+                                </div>
+                                
+                                <!-- Email input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputEmail" type="email" formControlName="email"
+                                    [ngClass]="{ 'is-invalid': submitted && addForm.controls['email'].errors }"
+                                        placeholder="Adresse Mail de l'enseignant " autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                        <div *ngIf="submitted && addForm.controls['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="addForm.controls['email'].hasError('required')" style="color: red;">Veuillez saisir l 'adresse Email de l'enseignant </div>
+                                            <div *ngIf="addForm.controls['email'].hasError('email')" style="color: red;">L'e-mail doit être une adresse valide</div>
+                                        </div>
+                                    
+                                </div>
+                                
+                                <!-- Phone Number input -->
+                                 <div class="form-group mb-3">
+                                    <input id="inputPhoneNumber" type="number" formControlName="phoneNumber"
+                                        placeholder="Numéro de téléphone de l'enseignant " autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                        <div *ngIf="submitted && addForm.controls['phoneNumber'].errors" class="invalid-feedback">
+                                            <div *ngIf="addForm.controls['phoneNumber'].hasError('required')" style="color: red;">Veuillez saisir le numéro de téléphone de l'enseignant </div>
+                                            <div *ngIf="addForm.controls['phoneNumber'].hasError('minlength')" style="color: red;">Le numéro de téléphone doit être au moins 9 caractères.</div>
+    
+                                        </div>
+                                    
+                                </div> 
+                                
+                                <!-- Password input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputPassword" type="password" formControlName="password"
+                                    [ngClass]="{ 'is-invalid': submitted && addForm.controls['password'].errors }"
+                                        placeholder="Mot de passe de l'enseignant " autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    
+                                        <div *ngIf="submitted && addForm.controls['password'].errors" class="invalid-feedback">
+                                            <div *ngIf="addForm.controls['password'].hasError('required')" style="color: red;">Veuillez saisir le mot de passe</div>
+                                            <div *ngIf="addForm.controls['password'].hasError('minlength')" style="color: red;">Le mot de passe doit être au moins 4 caractères.</div>
+
+                                        </div>
+                                   
+                                </div>
+                               
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Ajouter</button>
+                                </div>
+                            </form>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

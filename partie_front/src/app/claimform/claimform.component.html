@@ -1,0 +1,123 @@
+<app-header></app-header>
+<div class="container-fluid" style="margin-left: 20px; margin-top: 100px;">
+    <div class="row no-gutter">
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <!-- Add background image if necessary -->
+        </div>
+        
+        <!-- The content half -->
+        <div class="col-md-6 bg-light" style="margin-left: 300px;">
+            <div class="login py-5">
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h3 class="display-4">Déposer une réclamation</h3>
+                            
+                            <form [formGroup]="claimForm" (ngSubmit)="onSubmit()">
+
+                       <!--          <div class="form-group mb-3">
+                                    <input id="inputNom" type="text" formControlName="nom"
+                                        placeholder="Nom" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <div *ngIf="claimForm.get('nom')?.invalid && (claimForm.get('nom')?.dirty || claimForm.get('nom')?.touched)"
+                                         class="text-danger">
+                                        Le nom est requis.
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <input id="inputPrenom" type="text" formControlName="prenom"
+                                        placeholder="Prénom" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <div *ngIf="claimForm.get('prenom')?.invalid && (claimForm.get('prenom')?.dirty || claimForm.get('prenom')?.touched)"
+                                         class="text-danger">
+                                        Le prénom est requis.
+                                    </div>
+                                </div>
+
+<div class="form-group mb-3">
+    <input id="inputTelephone" type="text" formControlName="telephone"
+           placeholder="Numéro de téléphone" autofocus=""
+           class="form-control rounded-pill border-0 shadow-sm px-4">
+    <div *ngIf="claimForm.get('telephone')?.invalid && (claimForm.get('telephone')?.dirty || claimForm.get('telephone')?.touched)"
+         class="text-danger">
+        Le numéro de téléphone est requis.
+    </div>
+</div> -->
+
+
+                                <!-- Choix étudiant ou enseignant -->
+                   <!--              <div class="form-group mb-3">
+                                    <label for="inputType">Choisissez le type :</label>
+                                    <select id="inputType" formControlName="type" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <option value="etudiant">Étudiant</option>
+                                        <option value="enseignant">Enseignant</option>
+                                    </select>
+                                    <div *ngIf="claimForm.get('type')?.invalid && (claimForm.get('type')?.dirty || claimForm.get('type')?.touched)"
+                                         class="text-danger">
+                                        Le type est requis.
+                                    </div>
+                                </div> -->
+
+                                <!-- Filière input (affiché si c'est un étudiant) -->
+                                <div class="form-group mb-3" *ngIf="claimForm.get('type')?.value === 'etudiant'">
+                                    <label for="inputFiliere">Filière :</label>
+                                    <select id="inputFiliere" formControlName="filiere" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <option value="">Sélectionnez la filière</option>
+                                        <option value="Informatique">Informatique</option>
+                                        <option value="Génie Civil">Génie Civil</option>
+                                        <option value="Électromécanique">Électromécanique</option>
+                                    </select>
+                                </div>
+
+                                <!-- Niveau input (affiché si c'est un étudiant) -->
+                                <div class="form-group mb-3" *ngIf="claimForm.get('type')?.value === 'etudiant'">
+                                    <label for="inputNiveau">Niveau :</label>
+                                    <select id="inputNiveau" formControlName="niveau" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <option value="">Sélectionnez le niveau</option>
+                                        <option value="Première année">Première année</option>
+                                        <option value="Deuxième année">Deuxième année</option>
+                                        <option value="Troisième année">Troisième année</option>
+                                    </select>
+                                </div>
+
+                                <!-- Groupe input (affiché si c'est un étudiant) -->
+                                <div class="form-group mb-3" *ngIf="claimForm.get('type')?.value === 'etudiant'">
+                                    <label for="inputGroupe">Groupe :</label>
+                                    <select id="inputGroupe" formControlName="groupe" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <option value="">Sélectionnez le groupe</option>
+                                        <option value="Groupe A">Groupe A</option>
+                                        <option value="Groupe B">Groupe B</option>
+                                        <option value="Groupe C">Groupe C</option>
+                                    </select>
+                                </div>
+
+                                <!-- Réclamation input -->
+                                <div class="form-group mb-3">
+                                    <textarea id="inputReclamation" formControlName="content"
+                                        placeholder="Réclamation" class="form-control rounded border-0 shadow-sm px-4"></textarea>
+                                    <div *ngIf="claimForm.get('reclamation')?.invalid && (claimForm.get('reclamation')?.dirty || claimForm.get('reclamation')?.touched)"
+                                         class="text-danger">
+                                        La réclamation est requise.
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Déposer la réclamation</button>
+                                </div>
+                                <div class="text-center mb-4">
+                                    <!-- Add spacing here -->
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

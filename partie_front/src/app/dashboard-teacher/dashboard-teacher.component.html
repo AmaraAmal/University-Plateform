@@ -1,0 +1,63 @@
+<main style=" margin-left: 30px; width:1450px;">
+  <nav class="main-menu" >
+    <h1>Issatso+</h1>
+    <img class="logo" src="" alt="" />
+    <ul>
+      <li class="nav-item" [ngClass]="{ 'active': activeMenuItem === 'home' }" (click)="setActiveMenuItem('home')">
+        <b></b>
+        <b></b>
+        <a href="#">
+          <i class="fa fa-house nav-icon"></i>
+          <span class="nav-text" style="width: 200px;">Profil</span>
+        </a>
+      </li>
+
+
+      <li class="nav-item" [class.active]="coursClicked" (click)="loadCoursByUser()">
+        <b></b>
+        <b></b>
+        <a>
+          <i class="fa fa-calendar-check nav-icon"></i>
+          <span class="nav-text" style="width: 200px;">Mes Cours</span>
+        </a>
+      </li>
+      
+
+      <li class="nav-item" [class.active]="claimsClicked" (click)="loadClaimsByUser()">
+        <b></b>
+        <b></b>
+        <a>
+          <i class="fa fa-person-running nav-icon"></i>
+          <span class="nav-text" style="width: 200px;">Mes Réclamations</span>
+        </a>
+      </li>
+
+      <li class="nav-item" [class.active]="leaveRequestClicked" (click)="loadLeaveRequestByUser()" >
+        <b></b>
+        <b></b>
+        <a>
+          <i class="fa fa-sliders nav-icon"></i>
+          <span class="nav-text" style="width: 200px;">Mes demandes de congés</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <section class="content" style="height:1040px;" *ngIf="!coursClicked && !claimsClicked && !leaveRequestClicked" >
+    
+  </section>
+
+  <section class="content" *ngIf="coursClicked">
+    <app-cours-by-user></app-cours-by-user>
+  </section>
+
+  <section class="content" *ngIf="claimsClicked">
+    <app-claims-by-user></app-claims-by-user>
+  </section>
+
+  <section class="content" *ngIf="leaveRequestClicked">
+    <app-list-leave-request></app-list-leave-request>
+  </section>
+
+</main>

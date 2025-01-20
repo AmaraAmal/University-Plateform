@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="container-fluid" style="margin-left: 20px; margin-top: 100px;">
+    <div class="row no-gutter">
+        <div class="col-md-6 bg-light" style="margin-left: 300px;">
+            <div class="login py-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h3 class="display-4">Demande de congé</h3>
+                            
+                            <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+                               
+                              
+                                <!-- Type de congé -->
+                                <div class="form-group mb-3">
+                                  <label for="inputTypeConge">Type de congé :</label>
+                                  <select id="inputTypeConge" formControlName="typeConge" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <option value="">Sélectionnez le type de congé</option>
+                                    <option value="maternite">Maternité</option>
+                                    <option value="maladie">Maladie</option>
+                                    <option value="voyage">Voyage</option>
+                                    <option value="sortie">Sortie</option>
+                                  </select>
+                                  <div *ngIf="leaveForm.get('typeConge')?.invalid && leaveForm.get('typeConge')?.touched" class="text-danger">
+                                    Type de congé est requis.
+                                  </div>
+                                </div>
+
+                                
+                                <div class="form-group mb-3">
+                                  <label for="inputDateDebut">Date de début :</label>
+                                  <input id="inputDateDebut" type="date" formControlName="dateDebut" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                  <div *ngIf="leaveForm.get('dateDebut')?.invalid && leaveForm.get('dateDebut')?.touched" class="text-danger">
+                                    Date de début est requise.
+                                  </div>
+                                </div>
+                                
+                                <!-- Date de fin -->
+                                <div class="form-group mb-3">
+                                  <label for="inputDateFin">Date de fin :</label>
+                                  <input id="inputDateFin" type="date" formControlName="dateFin" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                  <div *ngIf="leaveForm.get('dateFin')?.invalid && leaveForm.get('dateFin')?.touched" class="text-danger">
+                                    Date de fin est requise.
+                                  </div>
+                                </div>
+                              
+                                <!-- Justification (upload de document PDF) -->
+                                <div class="form-group mb-3">
+                                  <label for="inputJustification">Justification :</label>
+                                  <input id="inputJustification" type="file" formControlName="justification" accept="application/pdf" class="form-control-file" (change)="onFileSelected($event)">
+                                  <div *ngIf="leaveForm.get('justification')?.invalid && leaveForm.get('justification')?.touched" class="text-danger">
+                                    Justification est requise.
+                                  </div>
+                                </div>
+                              
+                                <div class="text-center">
+                                  <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Envoyer la demande</button>
+                                </div>
+                                <div class="text-center mb-4">
+                                  <br>
+                                  <br>
+                                  <br>
+                                </div>
+                              </form>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="probootstrap-page-wrapper">
+
+ 
+
+  <!-- Profile section -->
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Profile image goes here -->
+          <img src="assets/img/profil.jpg" alt="Profile Picture" class="img-responsive" style="max-width: 200px; height: auto;">
+        </div>
+        <div class="col-md-8">
+          <h2>{{username}} </h2>
+          <!-- <div class="profile-info">
+            <p><strong>Statut:</strong> Étudiant</p>
+            <p><strong>Filière:</strong> Informatique</p>
+            <p><strong>Niveau:</strong> Licence 3</p>
+          </div> -->
+          <div class="profile-contact">
+            <p><strong>Nom de la famille:</strong> {{lastName}}</p>
+            <p><strong>Prénom:</strong> {{firstName}}</p>
+            <p><strong>Téléphone:</strong> 21605669</p>
+            <p><strong>Adresse:</strong> Sousse</p>
+          </div>
+          <div class="profile-actions">
+            <button id="editProfileBtn" class="btn btn-primary btn-lg" [routerLink]="['/edit']">Modifier le Profil</button>
+            <button id="changePasswordBtn" class="btn btn-primary btn-lg" [routerLink]="['/modifier-mot-de-passe']">Modifier le Mot de Passe</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Join Us section -->
+  <section class="probootstrap-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Nous Rejoindre !</h2>
+          <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Nos Formations</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+
+</div>
+<!-- END wrapper -->

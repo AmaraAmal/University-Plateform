@@ -1,0 +1,125 @@
+<app-header></app-header>
+<div class="container-fluid" style="margin-left: 20px; margin-top: 100px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <!-- Add background image if necessary -->
+        </div>
+        
+        <!-- The content half -->
+        <div class="col-md-6 bg-light"  style="margin-left: 400px;">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8" style="margin-right: 800px;">
+                            <h3 class="display-4">S'inscrire</h3>
+                            
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                <!-- First Name input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputFirstName" type="text" formControlName="firstName"
+                                    [ngClass]="{ 'is-invalid': submitted && registerForm.controls['firstName'].errors }"
+                                        placeholder="Nom" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    
+                                        <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="invalid-feedback" style="color: red;">
+                                            <div *ngIf="registerForm.controls['firstName'].hasError('required')">Vous devez saisir votre Nom</div>
+                                        </div>
+
+                                </div>
+                                
+                                <!-- Last Name input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputLastName" type="text" formControlName="lastName" 
+                                    [ngClass]="{ 'is-invalid': submitted && registerForm.controls['lastName'].errors }"
+                                        placeholder="Prénom" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                        <div *ngIf="submitted && registerForm.controls['lastName'].errors" class="invalid-feedback">
+                                            <div *ngIf="registerForm.controls['lastName'].hasError('required')" style="color: red;">Vous devez saisir votre Prénom</div>
+                                        </div>
+                                  
+                                </div>
+                                
+                                <!-- Email input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputEmail" type="email" formControlName="mail"
+                                    [ngClass]="{ 'is-invalid': submitted && registerForm.controls['mail'].errors }"
+                                        placeholder="Adresse Mail" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                        <div *ngIf="submitted && registerForm.controls['mail'].errors" class="invalid-feedback">
+                                            <div *ngIf="registerForm.controls['mail'].hasError('required')" style="color: red;">Vous devez saisir votre adresse Email</div>
+                                            <div *ngIf="registerForm.controls['mail'].hasError('email')" style="color: red;">L'e-mail doit être une adresse valide</div>
+                                        </div>
+                                    
+                                </div>
+                                
+                                <!-- Phone Number input -->
+                                 <div class="form-group mb-3">
+                                    <input id="inputPhoneNumber" type="number" formControlName="phoneNumber"
+                                        placeholder="Numéro de téléphone" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                        <div *ngIf="submitted && registerForm.controls['phoneNumber'].errors" class="invalid-feedback">
+                                            <div *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color: red;">Vous devez saisir votre numéro de téléphone</div>
+                                            <div *ngIf="registerForm.controls['phoneNumber'].hasError('minlength')" style="color: red;">Le numéro de téléphone doit être au moins 9 caractères.</div>
+    
+                                        </div>
+                                    
+                                </div> 
+
+<!-- Role input -->
+<div class="form-group mb-3">
+    <select formControlName="role" class="form-control rounded-pill border-0 shadow-sm px-4">
+      <option value="" disabled selected hidden>Sélectionner un rôle</option>
+      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+    </select>
+  
+    <div *ngIf="submitted && registerForm.controls['role'].errors" class="invalid-feedback">
+      <div *ngIf="registerForm.controls['role'].hasError('required')" style="color: red;">Vous devez sélectionner un rôle</div>
+    </div>
+  </div>
+  
+  
+                                
+                                <!-- Password input -->
+                                <div class="form-group mb-3">
+                                    <input id="inputPassword" type="password" formControlName="password"
+                                    [ngClass]="{ 'is-invalid': submitted && registerForm.controls['password'].errors }"
+                                        placeholder="Mot de passe" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    
+                                        <div *ngIf="submitted && registerForm.controls['password'].errors" class="invalid-feedback">
+                                            <div *ngIf="registerForm.controls['password'].hasError('required')" style="color: red;">Vous devez saisir votre mot de passe</div>
+                                        </div>
+                                   
+                                </div>
+                                
+                                <!-- Confirm Password input -->
+                              <!--   <div class="form-group mb-3">
+                                    <input id="inputConfirmPassword" type="password" formControlName="confirmPassword"
+                                        placeholder="Confirmer Mot de passe" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    
+                                   
+                                </div> -->
+                                
+                                <!-- Submit button -->
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill shadow-sm">S'inscrire</button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-3">
+                                <p class="text-muted">Vous avez un compte ? <a routerLink="/login" style="color: #1d6ada; text-decoration: none;">Se connecter</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

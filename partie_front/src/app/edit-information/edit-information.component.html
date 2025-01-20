@@ -1,0 +1,47 @@
+<!-- profile.component.html -->
+
+<app-header></app-header>
+
+<div class="probootstrap-page-wrapper">
+
+<!-- Profile title -->
+<!-- Profile section -->
+<section class="probootstrap-section" style="margin-top: 10px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Profile image goes here -->
+          <img src="assets/ghada.jpg" alt="Profile Picture" class="img-responsive" id="profileImage" style="max-width: 200px; height: auto;">
+          <input type="file" accept="image/*" id="profileImageInput" style="display: none;">
+          <button class="btn btn-primary" id="changeProfileImageButton">Changer la Photo</button>
+        </div>
+        <div class="col-md-8">
+          <!-- Profile form -->
+          <form id="profileForm">
+            <div class="form-group">
+              <label for="nom">Nom:</label>
+              <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone:</label>
+              <input type="tel" class="form-control" id="telephone" placeholder="Entrez votre téléphone">
+            </div>
+            <div class="form-group">
+              <label for="adresse">Adresse:</label>
+              <input type="text" class="form-control" id="adresse" placeholder="Entrez votre adresse">
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer les Modifications</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <app-footer></app-footer>
+
+</div>
+<!-- END wrapper -->

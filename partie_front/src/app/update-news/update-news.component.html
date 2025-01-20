@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container" style="margin-top: 55px;">
+    <h1 class="probootstrap-heading probootstrap text-center">Ajouter une Actualité</h1>
+
+    <form  enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Titre :</label>
+        <input type="text" class="form-control" id="title"  [(ngModel)]="currentNews.title" name="title" (input)="onTitleChange()">
+        <div *ngIf="submitted && !currentNews.title" class="invalid-feedback" style="color: red;">Veuillez saisir le titre de l'actualité </div>
+      </div>
+      <div class="form-group">
+        <input type="date" type="hidden" class="form-control" id="date"  [(ngModel)]="currentDate" name="date">
+      </div>
+      <div class="form-group">
+        <label for="content">Contenu :</label>
+        <textarea class="form-control" id="content"  [(ngModel)]="currentNews.content" name="content" rows="5" (input)="onContentChange()"></textarea>
+        <div *ngIf="submitted && !currentNews.content" class="invalid-feedback" style="color: red;">Veuillez saisir le contenu de l'actualité </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="files">Image :</label>
+        <input type="hid" class="form-control-file" id="files" formControlName="files" (change)="onFileSelected($event)">
+      </div> -->
+      <button type="submit" class="btn btn-primary" [disabled]="!edited">Modifier</button>
+    </form>
+  </div>

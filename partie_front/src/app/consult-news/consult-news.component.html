@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="container">
+    <h3 class="probootstrap-heading probootstrap-animate text-center " style="margin-top: 30px;">{{ news.title }}</h3>
+    <p class="text-muted text-center">{{ formatDate(news.date) }}</p>
+    <div class="text-center">
+      <img [src]="news.image" alt="Actualité" class="img-fluid">
+    </div>
+    <div class="mt-4" style="margin-top: 30px;">
+      <p>{{ news.content }}</p>
+    </div>
+  </div>
+  
